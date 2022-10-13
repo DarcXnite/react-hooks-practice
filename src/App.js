@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import User from './components/User'
+import Counter from './components/Counter'
+import useFetch from './customHooks/useFetch'
+import useAxios from './customHooks/useAxios'
 
 function App() {
+  const [data] = useFetch('https://jsonplaceholder.typicode.com/todos')
+  const [axiosData] = useAxios('https://jsonplaceholder.typicode.com/todos')
+
+  console.log('fetch', data)
+  console.log('axios', axiosData)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <header>Hello World!</header>
+      <User />
+      <Counter />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
